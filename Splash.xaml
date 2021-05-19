@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestEtude"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="GestEtude.Splash"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Title="Splash" ResizeMode="NoResize" WindowStyle="None">
+    <Border
+        Height="337.537"
+        Width="626.484"
+        CornerRadius="10,10,10,10"
+        Background="AliceBlue" BorderThickness="1" Margin="-30,0,-0.4,-18.2">
+        <StackPanel Margin="9.2,0.2,-0.4,8.8">
+            <Image
+                Height="200"
+                Width="200"
+                Source="./Styles/schoollogo1.png"
+                />
+            <TextBlock Foreground="#FF0069C6" FontSize="30" HorizontalAlignment="Center"><Run Text="Gestion Des Etudes"/></TextBlock>
+            <TextBlock Foreground="#FF0069C6" FontSize="12" HorizontalAlignment="Center"><Run Text="Institut Africaine d'Informatique L 2 B Groupe1"/></TextBlock>
+            <Grid Height="30"></Grid>
+            <mah:ProgressRing HorizontalAlignment="Left" Height="15" Margin="271,0,0,0" Width="50"/>
+        </StackPanel>
+    </Border>
+
+</Window>
