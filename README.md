@@ -3,7 +3,7 @@ L2 projet de gestion de scolarité
 
 Package recquis:
 
-ControlzEx 4.4.0\n
+ControlzEx 4.4.0
 Dapper 1.50.2
 Drapper1.2.0
 Drapper.Validation 1.1.0
