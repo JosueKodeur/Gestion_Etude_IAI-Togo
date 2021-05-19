@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="GestEtude.Page.Dep"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GestEtude.Page"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Width="Auto"
+             Height="Auto">
+    <materialDesign:TransitioningContent x:Name="Transi" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}" >
+        <Grid Height="607">
+
+            <TextBox x:Name="txtNom" BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="324" Margin="72,73,0,0"/>
+            <Label FontSize="17" Content="Nom :&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0" Height="34"/>
+            <Label FontSize="17" Content="College :" HorizontalAlignment="Left" Margin="0,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.445,3.241"/>
+            <ComboBox x:Name="ComboCollege"
+                      SelectedValue="{Binding CodeCollege}"
+                      SelectedValuePath="CodeCollege"
+                      SelectedIndex="0"
+                      DisplayMemberPath="NomCollege"
+                      BorderThickness="1"
+                      BorderBrush="Blue"
+                      VerticalContentAlignment="Center"
+                      HorizontalAlignment="Left"
+                      Height="32"
+                      VerticalAlignment="Top" Width="324" Margin="72,127,0,0"
+                      />
+            <DataGrid
+           
+                AutoGenerateColumns="False"
+                x:Name="DepData"
+         
+                BorderBrush="Blue" Height="372" Margin="10,235,48.4,0"
+              >
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="ID Departement" Width="250" Binding="{Binding CodeDep, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Département" Width="250" Binding="{Binding NomDep, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="College" Width="200" Binding="{Binding NomCollege, Mode=OneWay}"/>
+                </DataGrid.Columns>
+
+
+
+                <DataGrid.Style>
+                    <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+
+                    </Style>
+                </DataGrid.Style>
+            </DataGrid>
+            <Button
+                x:Name="btnAjouter"
+                Click="BtnAjouter_Click"
+                FontSize="15"
+                BorderBrush="Green"
+                BorderThickness="1"
+                Background="Green"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="61,178,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Add" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Ajouter" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnUpdate"
+                Click="BtnUpdate_Click"
+                FontSize="15"
+                BorderBrush="Orange"
+                BorderThickness="1"
+                Background="Orange"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="177,178,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Update" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Modifier" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnDelete"
+                FontSize="15"
+                BorderBrush="Red"
+                BorderThickness="1"
+                Background="Red"
+                Foreground="White"
+                Click="BtnDelete_Click"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="291,178,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Delete" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Effacer" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <TextBlock FontWeight="SemiBold" FontSize="20" HorizontalAlignment="Center" Margin="381,0,369.4,0" TextWrapping="Wrap" Text="Departement" VerticalAlignment="Top"/>
+            <TextBox
+                x:Name="txtID"
+                PreviewTextInput="NumberValidationTextBox" BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Margin="415,178,0,0"/>
+            <Button
+                x:Name="btnImpr"
+                Click="BtnAjouter_Click"
+                FontSize="15"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                Background="Blue"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="661,71,0,0" VerticalAlignment="Top" Width="161" Height="34">
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock FontSize="12" Text="Liste des départements" VerticalAlignment="Center" />
+                    <TextBlock FontSize="12" Text="Avec Leur responsable" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

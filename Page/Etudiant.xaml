@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="GestEtude.Page.Etudiant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GestEtude.Page"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="Auto"
+             Width="Auto" >
+    <materialDesign:TransitioningContent x:Name="Transi" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}" >
+        <Grid Height="657">
+
+            <TextBox
+                x:Name="txtNom"
+                BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="58,95,0,0"/>
+            <Label FontSize="13" Content="Nom :&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,95,0,0" Height="34" Width="47"/>
+            <TextBox
+                x:Name="txtMail"
+                BorderThickness="1" BorderBrush="Blue"
+                VerticalContentAlignment="Center" 
+                HorizontalAlignment="Left" Height="25"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="58,223,0,0"/>
+            <DataGrid
+                AutoGenerateColumns="False"
+                x:Name="EtuData"
+                BorderBrush="Blue"
+                HorizontalAlignment="Left"
+                Height="272"
+                Margin="7,385,0,0"
+                VerticalAlignment="Top"
+                Width="806">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Etudiant" Width="130" Binding="{Binding Path=NoEtudiant}"/>
+                    <DataGridTextColumn Header="Nom" Width="130" Binding="{Binding Path=Nom}"/>
+                    <DataGridTextColumn Header="Prenom" Width="130" Binding="{Binding Path=Prenom}"/>
+                    <DataGridTextColumn Header="Phone" Width="130" Binding="{Binding Path=Tel}"/>
+                    <DataGridTextColumn Header="Mail" Width="130" Binding="{Binding Path=Mail}"/>
+                    <DataGridTextColumn Header="Date" Width="130" Binding="{Binding Path=AnneeEntre}"/>
+                </DataGrid.Columns>
+
+                <DataGrid.Style>
+                    <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+
+                    </Style>
+                </DataGrid.Style>
+            </DataGrid>
+            <Button
+                x:Name="btnAjouter"
+                FontSize="15"
+                BorderBrush="Green"
+                BorderThickness="1"
+                Background="Green"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="58,314,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="GroupAdd" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Ajouter" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnUpdate"
+                FontSize="15"
+                BorderBrush="Orange"
+                BorderThickness="1"
+                Background="Orange"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="171,314,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Update" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Modifier" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnDelete"
+                FontSize="15"
+                BorderBrush="Red"
+                BorderThickness="1"
+                Background="Red"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="286,314,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Delete" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Effacer" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <TextBlock FontWeight="SemiBold" FontSize="20" HorizontalAlignment="Center" Margin="379,10,371.4,0" TextWrapping="Wrap" Text="Etudiant" VerticalAlignment="Top"/>
+            <TextBox
+                
+                x:Name="txtPrenom"
+                BorderThickness="1" 
+                BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="58,137,0,0"/>
+            <TextBox
+                PreviewTextInput="NumberValidationTextBox"
+                x:Name="txtPhone"
+                BorderThickness="1" BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left" Height="22"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="58,179,0,0"/>
+            <DatePicker 
+                SelectedDateFormat="Short"
+                SelectedDateChanged="txtDate_SelectedDateChanged"
+                x:Name="txtDate"
+                BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="22" Text="Nom" VerticalAlignment="Top" Width="322" Margin="58,264,0,0"/>
+            <Button
+                x:Name="BtnImprimer"
+                Click="BtnImprimer_Click"
+                FontSize="15"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                Background="Blue"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="622,314,0,0" VerticalAlignment="Top" Width="165" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Printer" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Imprimer Fiche" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Label FontSize="13" Content="Date&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,264,0,0" Height="34" Width="47"/>
+            <Label FontSize="13" Content="Mail :&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,223,0,0" Height="34" Width="47"/>
+            <Label FontSize="13" Content="Phone&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,176,0,0" Height="34" Width="47"/>
+            <Label FontSize="13" Content="Prenom&#xA; :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-3,137,0,0" Height="34" Width="61"/>
+            <TextBox
+                x:Name="txtID"
+                PreviewTextInput="NumberValidationTextBox" BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Margin="406,314,0,0"/>
+            <Button
+                x:Name="BtnImprimer_Copy"
+                Click="BtnImprimer_Copy_Click"
+                FontSize="15"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                Background="Blue"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="622,223,0,0" VerticalAlignment="Top" Width="165" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Printer" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Fiche" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="BtnImprimer_Copy1"
+                Click="BtnImprimer_Copy1_Click"
+                FontSize="15"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                Background="Blue"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="622,133,0,0" VerticalAlignment="Top" Width="165" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Printer" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Fiche Etu" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

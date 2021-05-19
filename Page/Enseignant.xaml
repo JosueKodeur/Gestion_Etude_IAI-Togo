@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="GestEtude.Page.Enseignant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GestEtude.Page"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto">
+    <materialDesign:TransitioningContent x:Name="Transi" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}" >
+        <Grid Height="685">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="424*"/>
+                <ColumnDefinition Width="425*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox
+                
+                x:Name="txtNom"
+                BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="73,119,0,0"/>
+            <Label FontSize="13" Content="Nom :&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,119,0,0" Height="34" Width="47"/>
+            <TextBox
+                x:Name="txtMail"
+                BorderThickness="1" BorderBrush="Blue"
+                VerticalContentAlignment="Center" 
+                HorizontalAlignment="Left" Height="25"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="73,247,0,0"/>
+            <DataGrid
+                AutoGenerateColumns="False"
+                x:Name="EnsData"
+                BorderBrush="Blue"
+                HorizontalAlignment="Left"
+                Height="272"
+                Margin="0,409,0,0"
+                VerticalAlignment="Top"
+                Width="847" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Enseignant" Width="85" Binding="{Binding Path=NoEnseignant, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Nom" Width="85" Binding="{Binding Path=Nom, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Prenom" Width="85" Binding="{Binding Path=Prenom, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Phone" Width="85" Binding="{Binding Path=Tel, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Mail" Width="85" Binding="{Binding Path=Mail, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Date" Width="90" Binding="{Binding Path=DatePrise, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Indice" Width="50" Binding="{Binding Path=Indice, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Role" Width="85" Binding="{Binding Path=Role, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Matiere" Width="85" Binding="{Binding Path=Libelle, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="Departement" Width="120" Binding="{Binding Path=NomDep, Mode=OneWay}"/>
+                </DataGrid.Columns>
+
+                <DataGrid.Style>
+                    <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+
+                    </Style>
+                </DataGrid.Style>
+            </DataGrid>
+            <Button
+                x:Name="btnAjouter"
+                FontSize="15"
+                BorderBrush="Green"
+                BorderThickness="1"
+                Background="Green"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="72,338,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="GroupAdd" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Ajouter" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnUpdate"
+                FontSize="15"
+                BorderBrush="Orange"
+                BorderThickness="1"
+                Background="Orange"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="185,338,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Update" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Modifier" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button
+                x:Name="btnDelete"
+                FontSize="15"
+                BorderBrush="Red"
+                BorderThickness="1"
+                Background="Red"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="300,338,0,0" VerticalAlignment="Top" Width="94" Height="33">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Delete" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Effacer" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <TextBlock FontWeight="SemiBold" FontSize="20" HorizontalAlignment="Center" Margin="393,12,354.675,0" TextWrapping="Wrap" Text="Enseignant" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBox
+                
+                x:Name="txtPrenom"
+                BorderThickness="1" 
+                BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="73,161,0,0"/>
+            <TextBox
+                PreviewTextInput="NumberValidationTextBox"
+                x:Name="txtPhone"
+                BorderThickness="1" BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left" Height="22"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="73,204,0,0"/>
+            <DatePicker 
+                SelectedDateFormat="Short"
+                x:Name="txtDate"
+                BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="22" Text="Nom" VerticalAlignment="Top" Width="322" Margin="72,288,0,0"/>
+            <Button
+                Click="BtnImprimer_Click"
+                x:Name="BtnImprimer"
+                FontSize="15"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                Background="Blue"
+                Foreground="White"
+                Style="{x:Null}"
+                HorizontalAlignment="Left" Margin="240.125,338,0,0" VerticalAlignment="Top" Width="165" Height="33" Grid.Column="1">
+
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Width="20" Height="20" Kind="Printer" VerticalAlignment="Center" Margin="3"/>
+                    <TextBlock Text="Imprimer Fiche" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Label FontSize="13" Content="Date :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,288,0,0" Height="34" Width="56"/>
+            <Label FontSize="13" Content="Mail :&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,247,0,0" Height="34" Width="47"/>
+            <Label FontSize="13" Content="Phone&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,200,0,0" Height="34" Width="47"/>
+            <Label FontSize="13" Content="Prenom&#xA; :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,161,0,0" Height="34" Width="61"/>
+            <TextBox
+                PreviewTextInput="NumberValidationTextBox"
+                x:Name="txtIndice"
+                BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Margin="83.125,119,0,0" Grid.Column="1"/>
+            <Label FontSize="13" Content="Indice :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,119,0,0" Height="34" Width="62" Grid.ColumnSpan="2"/>
+            <Label FontSize="13" Content="Role :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,158,0,0" Height="34" Width="47" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="ComboCours"
+                SelectedValue="{Binding NoCours}"
+                SelectedValuePath="NoCours"
+                DisplayMemberPath="Libelle"
+                BorderThickness="1"
+                BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Height="26"
+                VerticalAlignment="Top" Width="322" Margin="83.125,204,0,0" SelectionChanged="ComboCours_SelectionChanged" Grid.Column="1"
+                      />
+            <Label FontSize="13" Content="Matiere :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,200,0,0" Height="34" Width="62" Grid.ColumnSpan="2"/>
+            <ComboBox x:Name="ComboRole"
+                BorderThickness="1"
+                SelectedValuePath="Tag"
+                BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Height="26"
+                VerticalAlignment="Top" Width="322" Margin="83.125,161,0,0" SelectionChanged="ComboRole_SelectionChanged" Grid.Column="1"
+                      >
+                <ComboBoxItem Tag="Enseignant">Enseignant</ComboBoxItem>
+                <ComboBoxItem Tag="Directeur">Directeur</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="ComboDep"
+                SelectedValue="{Binding CodeDep}"
+                SelectedValuePath="CodeDep"
+                DisplayMemberPath="NomDep"
+                BorderThickness="1"
+                BorderBrush="Blue"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Height="26"
+                VerticalAlignment="Top" Width="322" Margin="83.6,247,0,0" SelectionChanged="ComboCours_SelectionChanged" Grid.Column="1"
+                      />
+            <Label FontSize="13" Content="Departement" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="418,249,0,0" Height="34" Width="84" Grid.ColumnSpan="2"/>
+            <TextBox
+                x:Name="txtID"
+                PreviewTextInput="NumberValidationTextBox" BorderThickness="1" BorderBrush="Blue" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Margin="418,338,0,0" Grid.ColumnSpan="2"/>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

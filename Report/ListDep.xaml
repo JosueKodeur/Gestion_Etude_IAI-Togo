@@ -1,0 +1,27 @@
+﻿<Window x:Class="GestEtude.Report.ListDep"
+        Loaded="Window_Loaded"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        xmlns:local="clr-namespace:GestEtude.Report"
+        mc:Ignorable="d"
+        Title="ListDep" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Viewer:CrystalReportsViewer 
+            Grid.Column="0"
+            Grid.Row="0"
+            x:Name="viewverListDep"
+            HorizontalAlignment="Left" Margin="0,0,-0.4,0" Width="Auto" Height="Auto"/>
+
+    </Grid>
+</Window>

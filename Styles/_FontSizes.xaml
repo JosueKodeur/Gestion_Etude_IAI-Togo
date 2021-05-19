@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+    xmlns:sys1="clr-namespace:System;assembly=mscorlib">
+
+    <sys1:Double x:Key="SmallFontSize">12</sys1:Double>
+
+    <sys1:Double x:Key="MediumFontSize">14</sys1:Double>
+
+    <sys1:Double x:Key="LargeFontSize">18</sys1:Double>
+
+    <sys1:Double x:Key="XLargeFontSize">22</sys1:Double>
+
+</ResourceDictionary>
